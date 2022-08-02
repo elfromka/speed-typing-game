@@ -1,49 +1,20 @@
-import { useState, useEffect, ChangeEvent, useRef } from "react";
+import useGame from "./hooks/useGame";
 import "./assets/scss/styles.scss";
 
+/**
+ * Renders the game section with the textarea, buttons, and other texts based on the logic and states of the 'useGame' hook.
+ * @return {JSX.Element} with various texts, textarea and button
+ */
 const App: React.FC = (): JSX.Element => {
-    const TOTAL_SECONDS: number = 10;
-
-    const [inputData, setInputData] = useState<string>("");
-    const [remainingSeconds, setRemainingSeconds] =
-        useState<number>(TOTAL_SECONDS);
-    const [start, setStart] = useState<boolean>(false);
-    const [totalWords, setTotalWords] = useState<number>(0);
-    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-
-    useEffect(() => {
-        if (remainingSeconds > 0 && start) {
-            textareaRef.current?.focus();
-            setTimeout(() => {
-                setRemainingSeconds(
-                    (prevremainingSeconds) => prevremainingSeconds - 1
-                );
-            }, 1000);
-        } else {
-            endGame();
-        }
-    }, [remainingSeconds, start]);
-
-    const countWords = (text: string): number =>
-        text !== "" ? text.trim().split(" ").length : 0;
-
-    const startGame = (): void => {
-        setRemainingSeconds(TOTAL_SECONDS);
-        setStart((prevStart) => !prevStart); // or simply pass true
-        setTotalWords(0);
-        setInputData("");
-    };
-
-    const endGame = (): void => {
-        setStart(false);
-        setTotalWords(countWords(inputData));
-    };
-
-    const handleOnChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
-        const { value }: { value: string } = event.target;
-
-        setInputData(() => value);
-    };
+    const [
+        textareaRef,
+        start,
+        inputData,
+        handleOnChange,
+        remainingSeconds,
+        startGame,
+        totalWords,
+    ] = useGame();
 
     return (
         <main className="container">
