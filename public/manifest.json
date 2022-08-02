@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Speed Typing Game",
+  "name": "Basic Speed Typing Game",
   "icons": [
     {
       "src": "favicon.ico",

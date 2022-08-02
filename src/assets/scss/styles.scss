@@ -51,6 +51,10 @@ body {
         outline: none;
         padding: 3rem;
         resize: none;
+
+        &:disabled {
+            background-color: $disabledColor;
+        }
     }
 
     &__start-button {
@@ -64,8 +68,17 @@ body {
         text-transform: uppercase;
         transition: 0.3s;
 
+        &:disabled {
+            background-color: $disabledColor;
+
+            &:hover {
+                background-color: $disabledColor;
+                cursor: initial;
+            }
+        }
+
         &:hover {
-            background-color: darken($primaryColor, 10%);
+            background-color: #ffffff;
         }
     }
 }
