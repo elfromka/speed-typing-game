@@ -5,7 +5,7 @@ import { useState, useEffect, ChangeEvent, useRef } from "react";
  * @param {number} totalSeconds - total number of seconds that a player can have when the game is started (by default: 15s)
  * @return {any[]} an array with various methods and states that needs to be used in the rendered component (App.tsx)
  */
-const useGame = (totalSeconds: number = 15): any[] => {
+const useGame = (totalSeconds: number = 60): any[] => {
     const [inputData, setInputData] = useState<string>("");
     const [remainingSeconds, setRemainingSeconds] =
         useState<number>(totalSeconds);

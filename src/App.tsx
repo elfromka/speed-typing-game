@@ -29,7 +29,7 @@ const App: React.FC = (): JSX.Element => {
                     className="game__textarea"
                 />
                 <h2 className="game__timer">
-                    Remaining time: {remainingSeconds}
+                    Remaining time: {remainingSeconds}s
                 </h2>
                 <button
                     disabled={start}
@@ -39,7 +39,7 @@ const App: React.FC = (): JSX.Element => {
                     Start
                 </button>
                 <h2 className="game__total-typeed-words">
-                    Total words typed: {totalWords}
+                    Total words typed in 60s: {totalWords}
                 </h2>
             </section>
         </main>
