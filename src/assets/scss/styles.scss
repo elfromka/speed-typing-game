@@ -1,0 +1,71 @@
+@import "/node_modules/normalize.css/normalize.css";
+@import "fonts";
+@import "variables";
+
+// General
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    color: $secondaryColor;
+    background-color: $primaryColor;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    font-family: $primaryFont;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    margin: 4rem auto;
+}
+
+.game {
+    text-align: center;
+
+    &__textarea {
+        background-color: $primaryColor;
+        border: none;
+        margin: 0 auto;
+        margin: 4rem auto;
+        max-width: 100%;
+        min-height: 30rem;
+        min-width: 100%;
+        outline: none;
+        padding: 3rem;
+        resize: none;
+    }
+
+    &__start-button {
+        background-color: $primaryColor;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+        margin: 4rem auto;
+        padding: 2rem 3rem;
+        text-transform: uppercase;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: darken($primaryColor, 10%);
+        }
+    }
+}
