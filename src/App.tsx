@@ -9,9 +9,11 @@ const App: React.FC = (): JSX.Element => {
         useState<number>(TOTAL_SECONDS);
     const [start, setStart] = useState<boolean>(false);
     const [totalWords, setTotalWords] = useState<number>(0);
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
     useEffect(() => {
         if (remainingSeconds > 0 && start) {
+            textareaRef.current?.focus();
             setTimeout(() => {
                 setRemainingSeconds(
                     (prevremainingSeconds) => prevremainingSeconds - 1
@@ -48,6 +50,7 @@ const App: React.FC = (): JSX.Element => {
             <section className="game">
                 <h1 className="game__title">Speed Typing Game</h1>
                 <textarea
+                    ref={textareaRef}
                     disabled={!start}
                     value={inputData}
                     name="inputData"
